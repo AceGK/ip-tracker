@@ -1,0 +1,60 @@
+.container {
+  min-height: 100vh;
+  max-height:100vh;
+  overflow:hidden;
+}
+
+.header {
+  h1 {
+    font-size:2rem;
+    padding-bottom:25px;
+  }
+  height: var(--header-height);
+  background: rgb(67,61,151);
+  background: linear-gradient(90deg, rgba(67,61,151,1) 0%, rgba(97,134,241,1) 100%);
+  color:white;
+  text-align: center;
+  padding-top:2em;
+}
+
+.data {
+  background:white;
+  border-radius:10px;
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:2em;
+  width:80%;
+  // height:6em;
+  padding:2em;
+  z-index: 2;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top:calc(var(--header-height) - 50px);
+  left: 0;
+  right: 0;
+  div {
+    display:flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    gap:1em;  
+    & p:first-of-type {
+      text-transform:uppercase;
+      font-weight:bold;
+      color:rgb(125, 125, 125);
+      font-size:.8rem;
+    }
+    & p:nth-of-type(2) {
+      font-weight:bold;
+      color:#393939;
+      font-size:1.4rem;
+    }
+  }
+}
+
+.homeMap {
+  z-index: 1;
+  width: 100vw;
+  height: calc(100vh - 256px);
+}
+
