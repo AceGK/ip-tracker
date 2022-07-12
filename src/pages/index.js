@@ -57,7 +57,7 @@ const Home = () => {
             required
           />
           <button type="submit" className="submitBtn" >
-            <Image src="/icon-arrow.svg" height={30} width={30} />
+            <Image src="/icon-arrow.svg" height={25} width={25} />
           </button>
         </form> 
       </section>

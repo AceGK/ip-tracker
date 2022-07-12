@@ -55,6 +55,6 @@
 .homeMap {
   z-index: 1;
   width: 100vw;
-  height: calc(100vh - 256px);
+  height: calc(100vh - var(--header-height));
 }
 

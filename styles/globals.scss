@@ -75,13 +75,18 @@ svg {
 }
 
 form {
+	height:50px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
   input[type="text"] {
     width: 350px;
-    padding: 15px;
     font-size: var(--fs-300);
 		height:100%;
+		padding:0px 5px;
   }
 	.submitBtn {
+		position:block;
 		border:none;
 		background:var(--clr-primary2);
 		height:100%;
