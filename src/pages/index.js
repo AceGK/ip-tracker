@@ -1,29 +1,24 @@
 import { useEffect, useState } from "react"
+import Image from 'next/image'
+
 
 import Map from '../components/Map';
 import styles from '../../styles/Home.module.scss';
 
 const Home = () => {
   const [input, setInput] = useState('')
-  const [info, setInfo] = useState([])
-  const [marker, setMarker] = useState([1, 1])
+  const [info, setInfo] = useState([]) 
+  const [marker, setMarker] = useState([1, 1]) 
 
   // fetch initial IP 
   useEffect(() => {
     fetch(`https://api.ipify.org?format=json`)
-    .then((res) => res.json())
+      .then((res) => res.json())
       .then((data) => {
         input = data.ip
         fetchIp()
-        // setInput('')
       })
   }, [])
-
-  // fetch initial IP 
-  // useEffect(() => {
-  //   input = "8.8.8.8"
-  //   fetchIp(input)
-  // }, [])
 
   const fetchIp = async () => {
     const response = await fetch(`/api/ip/${input}`)
@@ -38,7 +33,6 @@ const Home = () => {
     setInput('')
   };
 
-  // add map effect, setview to marker's location
   const MapEffect = ({ useMap }) => {
     const map = useMap();
 
@@ -50,31 +44,45 @@ const Home = () => {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="search-text"
-          value={input}
-          placeholder="Search any IP address or domain"
-          onChange={(e) => setInput(e.target.value)}
-          required
-        />
-        <button type="submit">
-          Submit
-        </button>
-      </form>
-
-      <p>{info.ip}</p>
-      <p>{info.location?.city}</p>
-      <p>{info.location?.region}</p>
-      <p>{info.location?.country}</p>
-      <p>{info.location?.timezone}</p>
-      <p>{info.isp}</p>
-
+    <div className={styles.container}>
+      <section className={styles.header}>
+        <h1>IP Address Tracker</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="search-text"
+            value={input}
+            placeholder="Search any IP address or domain"
+            onChange={(e) => setInput(e.target.value)}
+            required
+          />
+          <button type="submit" className="submitBtn" >
+            <Image src="/icon-arrow.svg" height={30} width={30} />
+          </button>
+        </form> 
+      </section>
+    
+      <section className={styles.info}>
+          <div>
+            <p>ip address</p>
+            <p>{info.ip}</p>
+          </div>
+          <div>
+            <p>location</p>
+            <p>{info.location?.city} {info.location?.region} {info.location?.country}</p>
+          </div>
+          <div>
+            <p>timezone</p>
+            <p>{info.location?.timezone}</p>
+          </div>
+          <div>
+            <p>isp</p>
+            <p>{info.isp}</p>
+          </div>
+        </section>
 
       <Map className={styles.homeMap} center={marker} zoom={12}>
-        {({ TileLayer, Marker, useMap }) => (
+        {({ TileLayer, Marker, useMap, Popup }) => (
           <>
             <MapEffect useMap={useMap} />
             <TileLayer
@@ -82,13 +90,16 @@ const Home = () => {
               attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             />
             <Marker position={marker}>
-
+              <Popup>
+              <p>lat: {info.location?.lat}</p>
+              <p>lng: {info.location?.lng}</p>
+              </Popup>
             </Marker>
           </>
         )}
       </Map>
 
-    </>
+    </div>
   );
 }
 

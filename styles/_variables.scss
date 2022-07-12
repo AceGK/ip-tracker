@@ -1,3 +1,22 @@
 :root {
-  --header-height: 220px;
+  --site-width:1440px;
+
+  --header-height: 250px;
+
+  --clr-primary1: hsl(0, 0%, 59%);
+  --clr-primary2: hsl(0, 0%, 17%);
+
+  --clr-accent1: hsl(0, 0%, 100%);
+  --clr-accent2: hsl(0, 0%, 0%);
+
+  --ff-primary: "Rubik", sans-serif;
+
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+
+  --fs-300: .875rem;
+  --fs-400: 1rem;
+  --fs-500: 1.125rem;
+  --fs-600: 1.5rem;
 }
