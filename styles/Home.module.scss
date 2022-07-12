@@ -1,3 +1,5 @@
+@import "styles/mixins";
+
 .container {
   min-height: 100vh;
   max-height:100vh;
@@ -6,7 +8,8 @@
 
 .header {
   h1 {
-    font-size:2rem;
+    font-size:var(--fs-800);
+    font-weight:var(--fw-semi-bold);
     padding-bottom:.5em;
   }
   height: var(--header-height);
@@ -41,14 +44,21 @@
     gap:1em;  
     & p:first-of-type {
       text-transform:uppercase;
-      font-weight:bold;
+      font-weight:var(--fw-semi-bold);
       color:var(--clr-primary-300);
-      font-size:.8rem;
+      font-size:var(--fs-300);
     }
     & p:nth-of-type(2) {
-      font-weight:bold;
+      font-weight:var(--fw-bold);
       color:var(--clr-primary-600);
-      font-size:1.4rem;
+      font-size:var(--fs-700);
+    }
+  }
+  @include tablet(){
+    grid-template-columns: 1fr;
+    text-align: center;
+    div {
+      gap:.5em;
     }
   }
 }
