@@ -14,16 +14,21 @@ const Home = () => {
     setInput('')
   };
 
+
   // fetch initial IP 
   useEffect(() => {
-    const fetchInitialIp = async () => {
-      const res = await fetch(`https://api.ipify.org?format=json`)
-      const data = await res.json()
-      setInput(data.ip)
-      console.log(data.ip)
-    };
-    fetchInitialIp()
-    fetchIp()
+    fetch(`https://api.ipify.org?format=json`)
+    .then((res) => res.json())
+      .then((data) => {
+        setInput(data.ip)
+      })
+      fetchIp()
+      setInput('')
+  }, [])
+
+  // fetch initial IP 
+  useEffect(() => {
+    // fetchIp()
   }, [])
 
   const fetchIp = async () => {
