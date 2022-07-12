@@ -76,7 +76,7 @@ svg {
 }
 
 form {
-	height:50px;
+	height:3.75rem;
 	display:flex;
 	justify-content: center;
 	align-items: center;
@@ -87,7 +87,7 @@ form {
     font-size: var(--fs-300);
 		height:100%;
 		width:100%;
-		padding:0px 10px;
+		padding-left:1.4rem;
 		border-top-left-radius:var(--border-radius);
 		border-bottom-left-radius:var(--border-radius);
 		border:none;
@@ -100,7 +100,7 @@ form {
 		display:flex;
 		justify-content: center;
 		align-items: center;
-		padding:0px 10px;
+		padding:0px 20px;
 		border-top-right-radius:var(--border-radius);
 		border-bottom-right-radius:var(--border-radius);
 		&:hover {

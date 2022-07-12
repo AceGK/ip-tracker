@@ -69,11 +69,11 @@ const Home = () => {
           </div>
           <div>
             <p>location</p>
-            <p>{info.location?.city} {info.location?.region} {info.location?.country}</p>
+            <p>{info.location?.city}, {info.location?.region} {info.location?.postalCode}</p>
           </div>
           <div>
             <p>timezone</p>
-            <p>{info.location?.timezone}</p>
+            <p>UTC {info.location?.timezone}</p>
           </div>
           <div>
             <p>isp</p>
