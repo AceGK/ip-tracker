@@ -21,9 +21,9 @@ const Home = () => {
     .then((res) => res.json())
       .then((data) => {
         setInput(data.ip)
+        fetchIp()
+        setInput('')
       })
-      fetchIp()
-      setInput('')
   }, [])
 
   // fetch initial IP 
