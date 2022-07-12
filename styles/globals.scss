@@ -80,16 +80,29 @@ form {
 	justify-content: center;
 	align-items: center;
   input[type="text"] {
-    width: 350px;
+    width: 400px;
+		max-width:80%;
     font-size: var(--fs-300);
 		height:100%;
-		padding:0px 5px;
+		padding:0px 10px;
+		border-top-left-radius:var(--border-radius);
+		border-bottom-left-radius:var(--border-radius);
+		border:none;
   }
 	.submitBtn {
 		position:block;
 		border:none;
 		background:var(--clr-primary2);
 		height:100%;
-		
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		padding:0px 10px;
+		border-top-right-radius:var(--border-radius);
+		border-bottom-right-radius:var(--border-radius);
+		&:hover {
+			cursor:pointer;
+			background:var(--clr-primary1);
+		}
 	}
 }
