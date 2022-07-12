@@ -8,28 +8,22 @@ const Home = () => {
   const [info, setInfo] = useState([])
   const [marker, setMarker] = useState([1, 1])
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    fetchIp()
-    setInput('')
-  };
-
-
   // fetch initial IP 
   useEffect(() => {
     fetch(`https://api.ipify.org?format=json`)
     .then((res) => res.json())
       .then((data) => {
-        setInput(data.ip)
+        input = data.ip
         fetchIp()
-        setInput('')
+        // setInput('')
       })
   }, [])
 
   // fetch initial IP 
-  useEffect(() => {
-    // fetchIp()
-  }, [])
+  // useEffect(() => {
+  //   input = "8.8.8.8"
+  //   fetchIp(input)
+  // }, [])
 
   const fetchIp = async () => {
     const response = await fetch(`/api/ip/${input}`)
@@ -37,6 +31,12 @@ const Home = () => {
     setInfo(data)
     setMarker([data.location.lat, data.location.lng])
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    fetchIp()
+    setInput('')
+  };
 
   // add map effect, setview to marker's location
   const MapEffect = ({ useMap }) => {
