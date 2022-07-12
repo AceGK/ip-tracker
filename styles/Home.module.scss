@@ -11,7 +11,7 @@
   }
   height: var(--header-height);
   background-image:url('../public/pattern-bg.png');
-  color:var(--clr-accent1);
+  color:var(--clr-primary-100);
   text-align: center;
   padding-top:2em;
   background-size: cover;
@@ -19,7 +19,7 @@
 }
 
 .info {
-  background:var(--clr-accent1);
+  background:var(--clr-primary-100);
   border-radius:10px;
   display:grid;
   grid-template-columns:repeat(4, 1fr);
@@ -42,12 +42,12 @@
     & p:first-of-type {
       text-transform:uppercase;
       font-weight:bold;
-      color:var(--clr-primary1);
+      color:var(--clr-primary-300);
       font-size:.8rem;
     }
     & p:nth-of-type(2) {
       font-weight:bold;
-      color:var(--clr-primary2);
+      color:var(--clr-primary-600);
       font-size:1.4rem;
     }
   }

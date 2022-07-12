@@ -92,7 +92,7 @@ form {
 	.submitBtn {
 		position:block;
 		border:none;
-		background:var(--clr-primary2);
+		background:var(--clr-primary-900);
 		height:100%;
 		display:flex;
 		justify-content: center;
@@ -102,7 +102,7 @@ form {
 		border-bottom-right-radius:var(--border-radius);
 		&:hover {
 			cursor:pointer;
-			background:var(--clr-primary1);
+			background:var(--clr-primary-600);
 		}
 	}
 }
