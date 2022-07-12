@@ -4,7 +4,6 @@ import Map from '../components/Map';
 import styles from '../../styles/Home.module.scss';
 
 const Home = () => {
-
   const [input, setInput] = useState('')
   const [info, setInfo] = useState([])
   const [marker, setMarker] = useState([1, 1])
@@ -15,8 +14,15 @@ const Home = () => {
     setInput('')
   };
 
-  // fetch initial empty data (ipify: empty query should default to client's IP, but I'm getting the server's ip?)
+  // fetch initial IP 
   useEffect(() => {
+    const fetchInitialIp = async () => {
+      const res = await fetch(`https://api.ipify.org?format=json`)
+      const data = await res.json()
+      setInput(data.ip)
+      console.log(data.ip)
+    };
+    fetchInitialIp()
     fetchIp()
   }, [])
 
@@ -27,6 +33,7 @@ const Home = () => {
     setMarker([data.location.lat, data.location.lng])
   }
 
+  // add map effect, setview to marker's location
   const MapEffect = ({ useMap }) => {
     const map = useMap();
 
