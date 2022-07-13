@@ -3,6 +3,14 @@
 
 ## View: [ip-tracker-acegk.vercel.app/](ip-tracker-acegk.vercel.app/)
 
+##  To-do 
+- info/results vertical separators
+- error states
+- initial data 
+- abbreivate states/region
+- reformat header elements/results (to retain positioning across screen-sizes)
+- change marker svg
+
 <br>
 <br>
 
